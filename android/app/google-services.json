@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1058364546907",
+    "firebase_url": "https://tienda-lol.firebaseio.com",
+    "project_id": "tienda-lol",
+    "storage_bucket": "tienda-lol.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058364546907:android:8725e1716e45f67980c47e",
+        "android_client_info": {
+          "package_name": "app.tienda_lol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058364546907-aokp9762diq38oumem4pkneeieu1k6rd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.tienda_lol",
+            "certificate_hash": "677f1897a2644aa9ea4b2f6ca257751dff2dc324"
+          }
+        },
+        {
+          "client_id": "1058364546907-mrrknc7siarmquq5irqftjh17f7143a0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeqp0yaRNdHjKbUIV3dqLT5lOdKs7ucbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058364546907-mrrknc7siarmquq5irqftjh17f7143a0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
