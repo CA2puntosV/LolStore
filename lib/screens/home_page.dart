@@ -1,8 +1,8 @@
+//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:tienda_lol/screens/register_page.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+//import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:tienda_lol/widgets/buttons_widgets.dart';
-
-import 'login.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -16,9 +16,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
+        alignment: Alignment.center,
         children: [
           BackApp(),
           bodypage(),
+          signInGoogleUI(),
+          fontlog(),
         ],
       ),
     );
@@ -39,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0)),
                 onPressed: () {
-                 Navigator.pushNamed(context, 'login');
+                  Navigator.pushNamed(context, 'login');
                 },
               ),
             ],
@@ -55,7 +58,6 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(30.0)),
                 onPressed: () {
                   Navigator.pushNamed(context, 'register');
-                
                 },
               ),
             ],
@@ -64,4 +66,79 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  Widget signInGoogleUI() {
+    return Container(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 100,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Bienvenidos\n a LolStore',
+                style: TextStyle(
+                    fontSize: 30,
+                    fontFamily: "Lato",
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget fontlog() {
+    return Container(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 350,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image.network(
+                'https://cdn.iconscout.com/icon/free/png-256/league-of-legends-555171.png',
+                width: 200,
+                height: 200,
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+//   Widget buttonGeneric() {
+//     UserBloc userBloc;
+//     userBloc = BlocProvider.of(context);
+//     return Container(
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           SizedBox(
+//             height: 370,
+//           ),
+//           Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: <Widget>[
+//               buttonGen(
+//                 text: "Inicia sesión con Gmail",
+//                 onPressed: () {
+//                   userBloc.signIn().then((FirebaseUser user) =>
+//                       print("El usuario es ${user.displayName}"));
+//                 },
+//                 width: 300.0,
+//                 height: 50.0,
+//               )
+//             ],
+//           )
+//         ],
+//       ),
+//     );
+//   }
 }
