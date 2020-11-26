@@ -1,7 +1,5 @@
-//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-//import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tienda_lol/widgets/buttons_widgets.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,125 +18,185 @@ class _HomePageState extends State<HomePage> {
         children: [
           BackApp(),
           bodypage(),
-          signInGoogleUI(),
-          fontlog(),
         ],
       ),
     );
   }
 
   Widget bodypage() {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              FlatButton(
-                child: Text('Iniciar sesion'),
-                padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0)),
-                onPressed: () {
-                  Navigator.pushNamed(context, 'login');
-                },
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              FlatButton(
-                child: Text('Registrate'),
-                padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 15.0),
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0)),
-                onPressed: () {
-                  Navigator.pushNamed(context, 'register');
-                },
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget signInGoogleUI() {
+    bool _checked = false;
     return Container(
       child: Column(
         children: [
+          // Row(
+          //   children: <Widget>[
+          //     Image(
+          //       image: AssetImage('assets/lolStoreIcon.jfif'),
+          //       height: 70,
+          //     )
+          //   ],
+          // ),
           SizedBox(
-            height: 100,
+            height: 150,
+          ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Text(
+                  'INICIAR SESIÓN',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            width: 220,
+            child: TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                prefixIcon: Icon(FontAwesomeIcons.userAlt),
+                labelText: 'Usuario',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(13)),
+                ),
+                isDense: false,
+                contentPadding: EdgeInsets.all(10),
+              ),
+              onChanged: (value) {},
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Container(
+            width: 220,
+            child: TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              obscureText: true,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                prefixIcon: Icon(FontAwesomeIcons.unlockAlt),
+                hintText: 'Contraseña',
+                labelText: 'Contraseña',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(13)),
+                ),
+                isDense: false,
+                contentPadding: EdgeInsets.all(10),
+              ),
+              onChanged: (value) {},
+            ),
+          ),
+          Row(
+            children: <Widget>[
+              SizedBox(
+                width: 40,
+              ),
+              Checkbox(
+                value: _checked,
+                onChanged: (bool value) {
+                  setState(() {
+                    _checked = value;
+                  });
+                },
+              ),
+              Text(
+                'Recordar mi contraseña',
+                style: TextStyle(color: Colors.white),
+              )
+            ],
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          Container(
+              child: GestureDetector(
+                  child: Text(
+                    "¿Tienes problemas con tus credenciales?",
+                    style: TextStyle(
+                      color: Color(0xffc79f3f),
+                    ),
+                  ),
+                  onTap: () {
+                    print('Enviar a la pantalla de problemas');
+                    //Navigator.pushNamed(context, '');
+                    //TODO crear pantalla de problemas con crendenciales
+                  })),
+          SizedBox(
+            height: 10,
+          ),
+          RaisedButton(
+            child: Text(
+              'INGRESAR',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 15.0),
+            color: Color(0xffc79f3f),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0)),
+            onPressed: () {
+              Navigator.pushNamed(context, 'shop');
+            },
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            child: GestureDetector(
+              child: RichText(
+                text: TextSpan(
+                  text: '¿No tienes cuenta?',
+                  style: TextStyle(color: Colors.white, fontSize: 12.0),
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: ' ¡Registrate!',
+                      style: TextStyle(
+                        color: Color(0xffc79f3f),
+                        fontSize: 12.0,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              onTap: () {
+                print('Redireccionar a la pantalla de registro');
+                //  Navigator.pushNamed(context, 'shop');
+                //TODO reorganizar pantalla shop
+              },
+            ),
+          ),
+          SizedBox(
+            height: 80,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'Bienvenidos\n a LolStore',
+                'Copyright',
                 style: TextStyle(
-                    fontSize: 30,
-                    fontFamily: "Lato",
-                    fontWeight: FontWeight.bold),
+                    color: Color(0xff92918f), fontWeight: FontWeight.bold),
               ),
+              Text(
+                '© Todos los derechos reservados 2020',
+                style: TextStyle(color: Color(0xff8f8d8e)),
+              )
             ],
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget fontlog() {
-    return Container(
-      child: Column(
-        children: [
-          SizedBox(
-            height: 350,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image.network(
-                'https://cdn.iconscout.com/icon/free/png-256/league-of-legends-555171.png',
-                width: 200,
-                height: 200,
-              ),
-            ],
-          )
         ],
       ),
     );
   }
-
-//   Widget buttonGeneric() {
-//     UserBloc userBloc;
-//     userBloc = BlocProvider.of(context);
-//     return Container(
-//       child: Column(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: [
-//           SizedBox(
-//             height: 370,
-//           ),
-//           Column(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: <Widget>[
-//               buttonGen(
-//                 text: "Inicia sesión con Gmail",
-//                 onPressed: () {
-//                   userBloc.signIn().then((FirebaseUser user) =>
-//                       print("El usuario es ${user.displayName}"));
-//                 },
-//                 width: 300.0,
-//                 height: 50.0,
-//               )
-//             ],
-//           )
-//         ],
-//       ),
-//     );
-//   }
 }

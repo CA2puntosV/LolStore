@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  font_awesome_flutter: ^8.10.0
 
 
   cupertino_icons: ^0.1.3
@@ -47,18 +48,18 @@ dev_dependencies:
 
 
 flutter:
-
+     
   uses-material-design: true
 
   assets:
-    - assets/logo.png
+    - assets/lolStoreIcon.jfif
 
-  # fonts:
-  #   - family: Schyler
+  #fonts:
+  #   - family: Roboto Mono
   #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  #      - asset: RobotoMono-Italic-VariableFont_wght.ttf
   #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  #        style: italic
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
