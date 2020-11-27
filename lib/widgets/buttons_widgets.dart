@@ -30,7 +30,7 @@ class BackApp extends StatelessWidget {
     final orangeBox = Transform.rotate(
       angle: -pi / 1.0,
       child: Container(
-        height: 510.0,
+        height: 520.0,
         width: 250,
         decoration: BoxDecoration(
             color: Color(0xFF38688c),
