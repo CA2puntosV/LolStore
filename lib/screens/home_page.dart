@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     _passwordVisible = false;
+    super.initState();
   }
 
   Widget build(BuildContext context) {
@@ -102,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                     if (value.isEmpty) {
                       return "Espacio de Contraseña Vacío";
                     }
-                    if (value != 'LilCA2' && value != 'Anita lava la tina') {
+                    if (value != 'CA2' && value != 'Anita lava la tina') {
                       return "Contraseña incorrecta";
                     }
                     return null;
@@ -187,7 +188,7 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   if (_keyForm.currentState.validate()) {
                     print("Validación Exitosa");
-                    Navigator.pushNamed(context, 'shop');
+                    Navigator.pushNamed(context, 'nav');
                   } else {
                     print("Error");
                   }

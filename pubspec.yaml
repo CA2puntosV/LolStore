@@ -22,6 +22,8 @@ environment:
 
 dependencies:
   slimy_card: ^1.0.4
+  hidden_drawer_menu: ^2.0.1
+  curved_navigation_bar: ^0.3.4
   flutter:
     sdk: flutter
   font_awesome_flutter: ^8.10.0
